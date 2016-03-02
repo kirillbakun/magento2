@@ -7,7 +7,32 @@
 /**
  * {{controller}} {{action}} template
  *
- * @var $block \Shop\News\Block\Index\Index
+ * @var $block \Shop\News\Block\Index\News
  */
 ?>
-update content from News\view\frontend\templates\index\index.phtml
+
+<?php echo $this->getChildHtml('shop_news_child'); ?>
+
+<a href="javascript:void(0)" id="news-ajax-link">News Ajax Link</a>
+
+<script>
+    require(['jquery'], function($){
+        $(document).ready(function() {
+            $("#news-ajax-link").click(function() {
+                $.post(
+                    'news/index/ajax',
+
+                    {
+                        "message": "message text"
+                    },
+
+                    function(data) {
+                        console.log(data);
+                    },
+
+                    'json'
+                );
+            });
+        });
+    });
+</script>

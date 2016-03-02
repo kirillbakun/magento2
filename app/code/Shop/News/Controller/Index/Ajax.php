@@ -9,7 +9,7 @@ use Magento\Framework\App\Cache\StateInterface;
 use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class Ajax extends Action
 {
     protected $cacheTypeList;
     protected $cacheState;
@@ -30,17 +30,6 @@ class Index extends Action
 
     public function execute()
     {
-        $this->resultPage = $this->resultPageFactory->create();
-        $this->resultPage->getConfig()->getTitle()->set(__('News'));
-
-        /** @var \Shop\News\Model\News $newsModel */
-        $newsModel = $this->_objectManager->create('Shop\News\Model\News');
-        $news = $newsModel->getAllActiveNews();
         $a = 1;
-        //$collection = $newsModel->getCollection();
-
-        //var_dump($collection->getData());
-
-		return $this->resultPage;
     }
 }

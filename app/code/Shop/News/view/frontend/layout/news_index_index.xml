@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../vendor/magento/framework/View/Layout/etc/page_configuration.xsd">
      <body>		
         <referenceContainer name="content">			
-			<block class="Shop\News\Block\Index\Index" name="index_index" template="index/index.phtml">
+			<block class="Shop\News\Block\Index\News" name="shop_news" template="index/index.phtml">
+                <block class="Shop\News\Block\Index\NewsChild" name="shop_news_child" template="index/index_child.phtml" />
 			</block>
         </referenceContainer>      
     </body>
