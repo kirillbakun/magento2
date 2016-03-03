@@ -34,12 +34,26 @@ class Index extends Action
         $this->resultPage->getConfig()->getTitle()->set(__('News'));
 
         /** @var \Shop\News\Model\News $newsModel */
-        $newsModel = $this->_objectManager->create('Shop\News\Model\News');
+        /*$newsModel = $this->_objectManager->create('Shop\News\Model\News');
         $news = $newsModel->getAllActiveNews();
-        $a = 1;
-        //$collection = $newsModel->getCollection();
+        $collection = $newsModel->getCollection();
+        var_dump($collection->getData());*/
 
-        //var_dump($collection->getData());
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        /**
+         * @var \Magento\Catalog\Model\ResourceModel\Product\Collection $productCollection
+         * @var \Magento\Catalog\Model\Product\Interceptor $product
+         */
+        $productCollection = $objectManager->create('Magento\Catalog\Model\ResourceModel\Product\Collection');
+        $productCollection->load();
+        $productCollection->addAttributeToFilter('name', 'test product');
+
+        foreach($productCollection as $product) {
+            $url = $product->getProductUrl();
+            $a = 1;
+        }
+        $productsList = $productCollection->getData();
+        $a = 1;
 
 		return $this->resultPage;
     }
