@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/module-backend/etc/menu.xsd">
+    <menu>
+        <add id="Shop_News::news" title="Custom Modules" module="Shop_News" sortOrder="70" resource="Shop_News::news"/>
+        <add id="Shop_News::news_list" title="News" module="Shop_News" action="news/news/index" parent="Shop_News::news" sortOrder="10" resource="Shop_News::news_list"/>
+    </menu>
+</config>
